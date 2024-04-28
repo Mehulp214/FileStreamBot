@@ -13,8 +13,9 @@ class Var(object):
     BOT_TOKEN = str(environ.get("BOT_TOKEN", "6746374653:AAG6QVkHwlO8i3dVaW_ReTTXLgq8FCsvMmg"))
     SLEEP_THRESHOLD = int(environ.get("SLEEP_THRESHOLD", "60"))  # 1 minte
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
-    BIN_CHANNEL = int(
+    #BIN_CHANNEL = int(
         environ.get("BIN_CHANNEL", None)
+    BIN_CHANNEL=-1001913863954
     )  # you NEED to use a CHANNEL when you're using MULTI_CLIENT
     PORT = int(environ.get("PORT", 8080))
     BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "0.0.0.0"))
