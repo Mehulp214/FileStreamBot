@@ -27,7 +27,7 @@ class Var(object):
         )
 
     DATABASE_URL = str(environ.get('DATABASE_URL', "mongodb+srv://newuser_31:qwerty_1234@cluster0.lajjdmy.mongodb.net/")
-    UPDATES_CHANNEL = str(environ.get('UPDATES_CHANNEL', "MehulBots"))
+    UPDATES_CHANNEL = str(environ.get('UPDATES_CHANNEL', "MehulBots")
     OWNER_ID = int(environ.get('OWNER_ID', '7170648639'))
     SESSION_NAME = str(environ.get('SESSION_NAME', 'F2LxBot'))
     FORCE_UPDATES_CHANNEL = environ.get('FORCE_UPDATES_CHANNEL', False)
