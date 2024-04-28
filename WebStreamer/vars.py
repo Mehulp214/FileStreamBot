@@ -7,7 +7,7 @@ load_dotenv()
 
 
 class Var(object):
-    MULTI_CLIENT = False
+    MULTI_CLIENT = True
     API_ID = int(environ.get("API_ID", 13216322))
     API_HASH = str(environ.get("API_HASH", "15e5e632a8a0e52251ac8c3ccbe462c7"))
     BOT_TOKEN = str(environ.get("BOT_TOKEN", "7151968059:AAHKIb14bwQh0Ly8FJU_52Lm-2S2nxm46ko"))
@@ -31,7 +31,7 @@ class Var(object):
     UPDATES_CHANNEL = str(environ.get('UPDATES_CHANNEL', "MehulBots"))
     OWNER_ID = int(environ.get('OWNER_ID', '7170648639'))
     SESSION_NAME = str(environ.get('SESSION_NAME', 'F2LxBot'))
-    FORCE_UPDATES_CHANNEL = environ.get('FORCE_UPDATES_CHANNEL', False)
+    FORCE_UPDATES_CHANNEL = environ.get('FORCE_UPDATES_CHANNEL', True)
     FORCE_UPDATES_CHANNEL = True if str(FORCE_UPDATES_CHANNEL).lower() == "true" and UPDATES_CHANNEL != 'aredirect' else False
 
     BANNED_CHANNELS = list(set(int(x) for x in str(environ.get("BANNED_CHANNELS", "-1001296894100")).split()))
