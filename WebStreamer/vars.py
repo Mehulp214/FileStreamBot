@@ -14,7 +14,7 @@ class Var(object):
     SLEEP_THRESHOLD = int(environ.get("SLEEP_THRESHOLD", "60"))  # 1 minte
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     #BIN_CHANNEL = int(
-        environ.get("BIN_CHANNEL", None)
+    #    environ.get("BIN_CHANNEL", None)
     BIN_CHANNEL=-1001913863954
     )  # you NEED to use a CHANNEL when you're using MULTI_CLIENT
     PORT = int(environ.get("PORT", 8080))
