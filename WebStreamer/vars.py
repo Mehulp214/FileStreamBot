@@ -8,9 +8,9 @@ load_dotenv()
 
 class Var(object):
     MULTI_CLIENT = False
-    API_ID = int(environ.get("API_ID"))
-    API_HASH = str(environ.get("API_HASH"))
-    BOT_TOKEN = str(environ.get("BOT_TOKEN"))
+    API_ID = int(environ.get("API_ID", 13216322))
+    API_HASH = str(environ.get("API_HASH", "15e5e632a8a0e52251ac8c3ccbe462c7"))
+    BOT_TOKEN = str(environ.get("BOT_TOKEN", "6746374653:AAG6QVkHwlO8i3dVaW_ReTTXLgq8FCsvMmg"))
     SLEEP_THRESHOLD = int(environ.get("SLEEP_THRESHOLD", "60"))  # 1 minte
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     BIN_CHANNEL = int(
@@ -26,9 +26,9 @@ class Var(object):
             "s" if HAS_SSL else "", FQDN, "" if NO_PORT else ":" + str(PORT)
         )
 
-    DATABASE_URL = str(environ.get('DATABASE_URL'))
-    UPDATES_CHANNEL = str(environ.get('UPDATES_CHANNEL', "Telegram"))
-    OWNER_ID = int(environ.get('OWNER_ID', '777000'))
+    DATABASE_URL = str(environ.get('DATABASE_URL', "mongodb+srv://newuser_31:qwerty_1234@cluster0.lajjdmy.mongodb.net/")
+    UPDATES_CHANNEL = str(environ.get('UPDATES_CHANNEL', "MehulBots"))
+    OWNER_ID = int(environ.get('OWNER_ID', '7170648639'))
     SESSION_NAME = str(environ.get('SESSION_NAME', 'F2LxBot'))
     FORCE_UPDATES_CHANNEL = environ.get('FORCE_UPDATES_CHANNEL', False)
     FORCE_UPDATES_CHANNEL = True if str(FORCE_UPDATES_CHANNEL).lower() == "true" and UPDATES_CHANNEL != 'aredirect' else False
