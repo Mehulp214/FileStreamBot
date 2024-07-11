@@ -15,11 +15,11 @@ class Var(object):
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     #BIN_CHANNEL = int(
     #    environ.get("BIN_CHANNEL", None))
-    BIN_CHANNEL=-1002183061636
+    BIN_CHANNEL=-1002175816545
     # you NEED to use a CHANNEL when you're using MULTI_CLIENT
     PORT = int(environ.get("PORT", 2400))
     
-    BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "185.182.187.49"))
+    BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "109.199.117.175"))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
     HAS_SSL = str(environ.get("HAS_SSL", "0").lower()) in ("1", "true", "t", "yes", "y")
     NO_PORT = str(environ.get("NO_PORT", "0").lower()) in ("1", "true", "t", "yes", "y")
@@ -30,7 +30,7 @@ class Var(object):
 
     DATABASE_URL = str(environ.get('DATABASE_URL', "mongodb+srv://newuser_31:qwerty_1234@cluster0.lajjdmy.mongodb.net/"))
     UPDATES_CHANNEL = str(environ.get('UPDATES_CHANNEL', "mehulbots"))
-    OWNER_ID = int(environ.get('OWNER_ID', '5896495700'))
+    OWNER_ID = int(environ.get('OWNER_ID', '5993556795'))
     SESSION_NAME = str(environ.get('SESSION_NAME', 'F2LxBot'))
     FORCE_UPDATES_CHANNEL = environ.get('FORCE_UPDATES_CHANNEL', False)
     FORCE_UPDATES_CHANNEL = True if str(FORCE_UPDATES_CHANNEL).lower() == "true" and UPDATES_CHANNEL != 'aredirect' else False
