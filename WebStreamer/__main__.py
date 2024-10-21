@@ -62,9 +62,9 @@ async def start_services():
     print("------------------------------------------------------------------")
     await idle()
 
-async def cleanup():
-    await server.cleanup()
-    await StreamBot.stop()
+# async def cleanup():
+#     await server.cleanup()
+#     await StreamBot.stop()
 
 if __name__ == "__main__":
     try:
