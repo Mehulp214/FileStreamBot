@@ -15,7 +15,7 @@ class Var(object):
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     #BIN_CHANNEL = int(
     #    environ.get("BIN_CHANNEL", None))
-    BIN_CHANNEL=-1002175816545
+    BIN_CHANNEL=-1002285484055
     # you NEED to use a CHANNEL when you're using MULTI_CLIENT
     PORT = int(environ.get("PORT", 2400))
     
