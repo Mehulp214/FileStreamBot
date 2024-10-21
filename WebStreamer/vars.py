@@ -19,7 +19,7 @@ class Var(object):
     # you NEED to use a CHANNEL when you're using MULTI_CLIENT
     PORT = int(environ.get("PORT", 2400))
     
-    BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "134.255.180.59"))
+    BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "185.182.187.49"))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
     HAS_SSL = str(environ.get("HAS_SSL", "0").lower()) in ("1", "true", "t", "yes", "y")
     NO_PORT = str(environ.get("NO_PORT", "0").lower()) in ("1", "true", "t", "yes", "y")
