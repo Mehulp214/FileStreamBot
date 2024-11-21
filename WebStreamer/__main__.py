@@ -105,6 +105,8 @@ logging.basicConfig(
 logging.getLogger("aiohttp").setLevel(logging.ERROR)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("aiohttp.web").setLevel(logging.ERROR)
+logging.error("Error details: %s", traceback.format_exc())
+
 
 server = web.AppRunner(web_server())
 
@@ -122,12 +124,17 @@ async def start_services():
         print("------------------- Starting as Primary Server -------------------")
     print()
     print("-------------------- Initializing Telegram Bot --------------------")
-    await StreamBot.start()
-    bot_info = await StreamBot.get_me()
-    StreamBot.id = bot_info.id
-    StreamBot.username = bot_info.username
-    StreamBot.fname=bot_info.first_name
-    print("------------------------------ DONE ------------------------------")
+    try:
+        await StreamBot.start()
+        bot_info = await StreamBot.get_me()
+        StreamBot.id = bot_info.id
+        StreamBot.username = bot_info.username
+        StreamBot.fname = bot_info.first_name
+        print("------------------------------ DONE ------------------------------")
+        print("Bot initialized successfully!")
+    except Exception as e:
+        logging.error("Failed to initialize Telegram Bot: %s", e)
+        raise SystemExit("Bot initialization failed. Check your token or network.")
     print()
     print("---------------------- Initializing Clients ----------------------")
     await initialize_clients()
@@ -151,8 +158,16 @@ async def start_services():
     await idle()
 
 async def cleanup():
-    await server.cleanup()
-    await StreamBot.stop()
+    try:
+        await server.cleanup()
+        if StreamBot.is_connected:
+            await StreamBot.stop()
+            print("StreamBot stopped successfully.")
+        else:
+            print("StreamBot was already stopped.")
+    except Exception as e:
+        logging.error("Error during cleanup: %s", e)
+
 
 if __name__ == "__main__":
     try:
@@ -160,8 +175,9 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     except Exception as err:
-        logging.error(traceback.format_exc())
+        logging.error("Unexpected error: %s", err)
     finally:
-        loop.run_until_complete(cleanup())
-        loop.stop()
+        if not loop.is_closed():
+            loop.run_until_complete(cleanup())
+            loop.close()
         print("------------------------ Stopped Services ------------------------")
